@@ -18,9 +18,8 @@ fun AppTheme(
     content: @Composable () -> Unit
 ) {
 
-    CompositionLocalProvider(LocalAppColors provides ExtendedColor) {
+    CompositionLocalProvider(LocalAppColors provides ExtendedColor, LocalAppTypography provides ExtendedTypography) {
         MaterialTheme(
-            typography = Typography,
             content = content
         )
     }
@@ -30,4 +29,7 @@ object  AppTheme{
     val Colors : AppColors
     @Composable
     get() = LocalAppColors.current
+    val Typography : AppTypography
+    @Composable
+    get() = LocalAppTypography.current
 }

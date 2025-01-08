@@ -12,9 +12,9 @@ import androidx.compose.ui.unit.sp
 import com.example.fooddelivery.R
 
 private val UnboundedFontFamily = FontFamily(
-    Font(R.font.unbounded_Bold, FontWeight.Bold, FontStyle.Normal),
-    Font(R.font.unbounded_Regular, FontWeight.Normal, FontStyle.Normal),
-    Font(R.font.unbounded_Light, FontWeight.Light, FontStyle.Normal),
+    Font(R.font.unbounded_bold, FontWeight.Bold, FontStyle.Normal),
+    Font(R.font.unbounded_regular, FontWeight.Normal, FontStyle.Normal),
+    Font(R.font.unbounded_light, FontWeight.Light, FontStyle.Normal),
     )
 
 @Immutable

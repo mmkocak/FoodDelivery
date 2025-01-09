@@ -28,18 +28,21 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.fooddelivery.R
+import com.example.fooddelivery.data.ProductPreviewState
 import com.example.fooddelivery.ui.theme.AppColors
 import com.example.fooddelivery.ui.theme.AppTheme
 
 @Composable
 fun ProductPreviewSection(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    state: ProductPreviewState
 ) {
 Box (modifier = modifier.height(IntrinsicSize.Max)){
     ProductBackground(
         modifier = modifier.padding(bottom = 24.dp)
     )
     Content(
+        state = state,
         modifier = modifier
             .statusBarsPadding()
             .padding(top = 24.dp)
@@ -63,7 +66,10 @@ private fun ProductBackground(
     )
 }
 @Composable
-private fun Content(modifier: Modifier = Modifier) {
+private fun Content(
+    modifier: Modifier = Modifier,
+    state: ProductPreviewState
+) {
     ConstraintLayout(modifier = modifier.fillMaxWidth()) {
         val (actionBar, highLights, productImage) = createRefs()
         ActionBar(
@@ -85,6 +91,13 @@ private fun Content(modifier: Modifier = Modifier) {
                     top.linkTo(anchor = actionBar.bottom, margin = 20.dp)
                 }
         )
+        ProductHighlights(
+            highlights = state.highLights,
+            modifier = Modifier.constrainAs(highLights) {
+                start.linkTo(anchor = parent.start, margin = 19.dp)
+                top.linkTo(productImage.top)
+            }
+            )
     }
 }
 

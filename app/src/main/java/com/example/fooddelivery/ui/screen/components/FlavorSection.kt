@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
@@ -78,14 +79,33 @@ private fun ProductFlavorItem(
             )
             .background(shape = RoundedCornerShape(28.dp), color = AppTheme.Colors.regularSurface)
     ){
-        Column() {
+        Column(
+            modifier = Modifier
+                .padding(vertical =  20.dp, horizontal = 8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        )
+
+        {
             Image(
                 painter = painterResource(id = state.imgRes),
                 contentDescription = null,
                 contentScale = ContentScale.FillWidth,
                 modifier = Modifier.fillMaxWidth()
             )
-            Column() {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Text(
+                    text = state.name,
+                    style = AppTheme.Typography.bodySmall,
+                    color = AppTheme.Colors.onRegularSurface
+                )
+                Text(
+                    text = "${state.price}",
+                    style = AppTheme.Typography.bodySmall,
+                    color = AppTheme.Colors.onRegularSurface
+                )
 
             }
         }
